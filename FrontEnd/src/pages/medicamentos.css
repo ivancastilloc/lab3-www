@@ -1,0 +1,12 @@
+th{
+    background-color: #CCCCCC;
+}
+
+table{
+    width: 80%;
+    margin: auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+  }

@@ -1,0 +1,32 @@
+mutation{
+  addMedicamento(input: {nombre: "Paracetamol", valor: 9990, stock: 25}) {
+		nombre
+    valor
+    stock
+  }
+}
+
+
+query {
+  getMedicamentos{
+    id
+    valor
+    stock
+    nombre
+  }
+}
+
+mutation{
+  updMedicamento(id:"61ccb39a993429159ca28151", input: {stock: 14}) {
+    id
+    nombre
+    valor
+    stock
+  }
+}
+
+mutation{
+  delMedicamento(id:"61ccb39a993429159ca28151") {
+    message
+  }
+}

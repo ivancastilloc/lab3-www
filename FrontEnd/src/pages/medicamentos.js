@@ -22,7 +22,22 @@ function App() {
     console.log(url);
     fetch(url,
       {  method: "PATCH"});
+    refreshPage();
     
+  }
+
+  function caducar(idMedicamento, Stock, id){
+    var value = document.getElementById(id).value
+    const url = 'http://localhost:3000/medicamentos/' + idMedicamento + "&" + (Stock - value);
+    console.log(url);
+    fetch(url,
+      {  method: "PATCH"});
+    refreshPage();
+    
+  }
+
+  function refreshPage(){
+    window.location.reload();
   }
 
   return(
@@ -39,6 +54,7 @@ function App() {
             <td>{item.nombre}</td>
             <td>{item.valor}</td>
             <td class="stock">  <button type="button" onClick={() => updateStock( item._id, item.stock - 1 )}> - </button>  {item.stock} <button type="button" onClick={() => updateStock( item._id, item.stock + 1 )}> + </button> </td>
+            <td><input type="text" name="textbox1" id={item._id}/> <button type="button" onClick={() => caducar( item._id, item.stock, item._id)}> Caducar </button> </td>
 
         </tr>
         
